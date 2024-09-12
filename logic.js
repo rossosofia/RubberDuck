@@ -16,8 +16,6 @@ const quackSound = document.getElementById("quackSound")
 // });
 
 
-
-
 // Manipulating the DOM
 function createProblem(newProblemText) {
     const newLi = document.createElement("li");
@@ -26,15 +24,17 @@ function createProblem(newProblemText) {
     newLi.textContent = newProblemText;
     newLi.title = `Submitted on ${timestamp}`; 
 
-    document.getElementById("problemsList").appendChild(newLi);
+    const problemsList = document.getElementById("problemsList");
+    problemsList.insertBefore(newLi, problemsList.firstChild);
     duckSound.play();
+
 }
 
 // ▪ Format of that Date: “DD/MM/YYYY, hh:mm”
 function getFormattedDate(){
     const now = new Date();
     const day = now.getDate();
-    const month = String(now.getMonth() + 1).padStart(2, '0'); // now.getMonth() + 1; this was my original solution
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // now.getMonth() + 1; this was my original solution, but this is more precise
     const year = now.getFullYear();
     const hour = now.getHours();
     const minutes = now.getMinutes();
