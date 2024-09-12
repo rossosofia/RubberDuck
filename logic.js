@@ -5,24 +5,28 @@ function playSound(){
     duckSound.play()
 }
 
-setTimeOut(function stopSound(){
-   duckSound.pause();
-   duckSound.currentTime = 0;
-}, 1000)
+// setTimeOut(function stopSound(){
+//    duckSound.pause();
+//    duckSound.currentTime = 0;
+// }, 1000)
 
 // Manipulating the DOM
-function createProblem() {
-    const newProblemText = document.getElementById("newProblem").value;
+function createProblem(newProblemText) {
     const newLi = document.createElement("li");
 
     newLi.textContent = newProblemText;
     document.getElementById("problemsList").appendChild(newLi);
-    playSound()
+    // playSound()
     
 }
 
 document.getElementById("addButton").addEventListener("click", function () {
-    createProblem();
+    const newProblemText = document.getElementById("newProblem").value;
+    if (newProblemText.trim() === "") {
+        alert("Please enter a problem.");
+        return; 
+    }
+    createProblem(newProblemText);
 });
 
 const duckImg = document.getElementById("duck")
