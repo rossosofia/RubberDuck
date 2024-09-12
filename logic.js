@@ -1,23 +1,22 @@
+const button = document.getElementById("box");
+const duckSound = document.getElementById("duckSound")
+const quackSound = document.getElementById("quackSound")
+
 window.addEventListener("load", function () {
     const userName = prompt("What's your name?");
     
     if (userName) {
         const duckMessage = document.querySelector("h3");
         duckMessage.textContent = `Hello, ${userName}! Mr. Duck is here to help you solve problems.`;
+        quackSound.play();
     }
 });
 
-const button = document.getElementById("box");
+const duckImg = document.getElementById("duck")
 
-function playSound(){
-    const duckSound = document.getElementById("duckSound")
-    duckSound.play()
-}
-
-// setTimeOut(function stopSound(){
-//    duckSound.pause();
-//    duckSound.currentTime = 0;
-// }, 1000)
+duckImg.addEventListener("mouseover", function(){
+    quackSound.play();
+})
 
 // Manipulating the DOM
 function createProblem(newProblemText) {
@@ -25,8 +24,7 @@ function createProblem(newProblemText) {
 
     newLi.textContent = newProblemText;
     document.getElementById("problemsList").appendChild(newLi);
-    // playSound()
-    
+    duckSound.play();
 }
 
 document.getElementById("addButton").addEventListener("click", function () {
@@ -38,15 +36,6 @@ document.getElementById("addButton").addEventListener("click", function () {
     createProblem(newProblemText);
 });
 
-const duckImg = document.getElementById("duck")
 
-duckImg.addEventListener("mouseover", function(){
-    const duckSound = document.getElementById("duckSound")
-    duckSound.play();
-})
 
-duckImg.addEventListener("mouseout", function(){
-    const duckSound = document.getElementById("duckSound")
-    duckSound.pause();
-})
 
