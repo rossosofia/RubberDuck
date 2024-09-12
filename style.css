@@ -1,0 +1,29 @@
+body {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+}
+
+header,
+main {
+  grid-column: 2;
+}
+
+header {
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#input-container {
+  width: 80%;
+}
