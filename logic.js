@@ -77,5 +77,32 @@ duckImg.addEventListener("mouseover", function(){
     quackSound.play();
 })
 
+// async - API
+const forceAnswerButton = document.getElementById("force");
+const duckMessage = document.querySelector("h3"); 
+
+
+async function fetchJoke() {
+    try {
+        const response = await fetch('https://v2.jokeapi.dev/joke/Dark,Pun?blacklistFlags=racist,sexist,explicit');
+        const data = await response.json();
+        
+        let joke = "";
+        if (data.type === "single") {
+            joke = data.joke;
+        } else {
+            joke = `${data.setup} <br> ${data.delivery}`;
+        }
+
+        duckMessage.innerHTML = `Mr. Duck's joke: <br> ${joke}`;
+    } catch (error) {
+        duckMessage.innerHTML = "Mr. Duck is left speechless";
+        console.error("Error fetching joke:", error);
+    }
+}
+
+// Add event listener to the "Force Answer" button
+forceAnswerButton.addEventListener("click", fetchJoke);
+
 
 
