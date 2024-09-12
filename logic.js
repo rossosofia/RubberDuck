@@ -1,3 +1,12 @@
+window.addEventListener("load", function () {
+    const userName = prompt("What's your name?");
+    
+    if (userName) {
+        const duckMessage = document.querySelector("h3");
+        duckMessage.textContent = `Hello, ${userName}! Mr. Duck is here to help you solve problems.`;
+    }
+});
+
 const button = document.getElementById("box");
 
 function playSound(){
