@@ -1,8 +1,25 @@
 const duckImg = document.getElementById("duck")
-// const button = document.getElementById("box");
 const duckSound = document.getElementById("duckSound")
 const quackSound = document.getElementById("quackSound")
+const logButton = document.getElementById("user");
 
+window.addEventListener("load", function () {
+    const userName = localStorage.getItem("username");
+    console.log(userName);
+    
+    if (userName) {
+        const duckMessage = document.querySelector("h3");
+        logButton.textContent = "Log out"
+        duckMessage.innerHTML = `<span class="username">Hello, ${userName}!</span><br>
+        <span class="help-text">Mr. Duck is here to help you solve your problems. <i>(not all of them)</i></span>`;
+        quackSound.play();
+    } else {
+        logButton.textContent = "Log in";
+        logButton.addEventListener("click", function() {
+            localStorage.clear();
+        });
+    }
+});
 
 
 // window.addEventListener("load", function () {

@@ -33,14 +33,28 @@ header div {
   gap: 1rem;
   flex-direction: row;
 }
+
 header h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #6a1b9a;
   margin-left: 1rem;
 }
 
+.username {
+  font-size: 1.5rem; /* Make the username bigger */
+  font-weight: bold;
+}
+
+.help-text {
+  font-size: 0.9rem; /* Smaller font for the help text */
+}
+
+.help-text i {
+  font-style: italic; /* Italicize the text in parentheses */
+}
+
 #user {
-  font-size: 0.8rem;
+  font-size: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: #fff;
