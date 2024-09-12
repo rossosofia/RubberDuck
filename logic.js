@@ -1,5 +1,5 @@
 const duckImg = document.getElementById("duck")
-const button = document.getElementById("box");
+// const button = document.getElementById("box");
 const duckSound = document.getElementById("duckSound")
 const quackSound = document.getElementById("quackSound")
 
@@ -27,10 +27,9 @@ function createProblem(newProblemText) {
     const problemsList = document.getElementById("problemsList");
     problemsList.insertBefore(newLi, problemsList.firstChild);
     duckSound.play();
-
 }
 
-// ▪ Format of that Date: “DD/MM/YYYY, hh:mm”
+// Format of that Date: “DD/MM/YYYY, hh:mm”
 function getFormattedDate(){
     const now = new Date();
     const day = now.getDate();
@@ -41,7 +40,12 @@ function getFormattedDate(){
     return `${day}/${month}/${year}, ${hour}:${minutes}`;
 }
 
-document.getElementById("addButton").addEventListener("click", function () {
+
+
+// Submit question - Ask a question
+const askButton = document.getElementById("askButton");
+
+askButton.addEventListener("click", function() {
     const newProblemText = document.getElementById("newProblem").value;
     if (newProblemText.trim() === "") {
         alert("Please enter a problem.");
@@ -50,8 +54,11 @@ document.getElementById("addButton").addEventListener("click", function () {
     createProblem(newProblemText);
 });
 
+
+// Sound on image
 duckImg.addEventListener("mouseover", function(){
     quackSound.play();
 })
+
 
 
